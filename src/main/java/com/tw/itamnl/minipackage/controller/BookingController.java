@@ -1,5 +1,6 @@
 package com.tw.itamnl.minipackage.controller;
 
+import com.tw.itamnl.minipackage.dto.BookingDto;
 import com.tw.itamnl.minipackage.model.Booking;
 import com.tw.itamnl.minipackage.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class BookingController {
 
     @PostMapping
     @ResponseStatus(code = CREATED)
-    public Booking createPackageBooking(@RequestBody Booking booking){
+    public Booking createPackageBooking(@RequestBody BookingDto booking){
         return bookingService.save(booking);
     }
 
