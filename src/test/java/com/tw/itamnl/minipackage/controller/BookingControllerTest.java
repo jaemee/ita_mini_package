@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(BookingController.class)
 @ActiveProfiles(profiles = "bookingTest")
-class BookingControllerTest {
+public class BookingControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -29,7 +29,7 @@ class BookingControllerTest {
     private ObjectMapper mapper;
 
     @Test
-    void should_return_created_status_when_create_valid_booking() throws Exception {
+    public void should_return_created_status_when_create_valid_booking() throws Exception {
         Booking booking = new Booking();
         ResultActions result = mockMvc.perform(post("/bookings")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -39,7 +39,7 @@ class BookingControllerTest {
 
 
     @Test
-    void should_return_all_bookings() throws Exception {
+    public void should_return_all_bookings() throws Exception {
         ResultActions result = mockMvc.perform(get("/bookings"));
         result.andExpect(status().isOk());
     }

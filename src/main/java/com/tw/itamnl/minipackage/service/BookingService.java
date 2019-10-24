@@ -6,14 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PackageService {
+public class BookingService {
 
     @Autowired
     private BookingRepository bookingRepo;
-
-    public PackageService(BookingRepository bookingRepo) {
-        this.bookingRepo = bookingRepo;
-    }
 
     public Booking save(Booking booking) {
         return bookingRepo.save(booking);

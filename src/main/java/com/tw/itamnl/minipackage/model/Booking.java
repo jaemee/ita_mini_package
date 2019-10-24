@@ -18,7 +18,7 @@ public class Booking {
     @Column(unique = true)
     private Integer packageNo;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private PackageReceiver receiver;
 
     private String weight;

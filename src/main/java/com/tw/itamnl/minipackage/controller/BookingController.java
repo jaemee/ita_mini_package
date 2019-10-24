@@ -1,7 +1,7 @@
 package com.tw.itamnl.minipackage.controller;
 
 import com.tw.itamnl.minipackage.model.Booking;
-import com.tw.itamnl.minipackage.service.PackageService;
+import com.tw.itamnl.minipackage.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,17 +12,16 @@ import static org.springframework.http.HttpStatus.CREATED;
 public class BookingController {
 
     @Autowired
-    private PackageService packageService;
+    private BookingService bookingService;
 
     @PostMapping
     @ResponseStatus(code = CREATED)
     public Booking createPackageBooking(@RequestBody Booking booking){
-        return packageService.save(booking);
+        return bookingService.save(booking);
     }
 
     @GetMapping
-    @ResponseStatus(code = CREATED)
     public Iterable<Booking> getAllBookings(){
-        return packageService.findAll();
+        return bookingService.findAll();
     }
 }
