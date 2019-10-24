@@ -8,18 +8,17 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
-public class Package {
+public class Booking {
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
     @Column(unique = true)
     private Integer packageNo;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private PackageReceiver receiver;
 
     private String weight;
